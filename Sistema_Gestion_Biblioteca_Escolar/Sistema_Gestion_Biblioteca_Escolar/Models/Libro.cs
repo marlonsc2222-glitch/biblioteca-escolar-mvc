@@ -24,7 +24,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
         [Index(IsUnique = true)]
         public string ISBN { get; set; } // ISBN del libro
 
-        [Required(ErrorMessage = "La categoría es es obligatoria")]
+        [Required(ErrorMessage = "La categoría es obligatoria")]
         [StringLength(80, ErrorMessage = "La categoría del libro no puede exceder los 80 caracteres")]
         [Display(Name = "Categoría")]
         public string Categoria { get; set; } // Categoría del libro
