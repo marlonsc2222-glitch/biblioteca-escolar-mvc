@@ -8,7 +8,7 @@ using System.Web;
 // Código guíado y consultado mediante IA (Claude Anthropic) ------------------------------------------------------
 namespace Sistema_Gestion_Biblioteca_Escolar.Models
 {
-    public class Prestamos // Clase que representa la entidad Prestamos en el sistema de gestión de biblioteca escolar
+    public class Prestamo // Clase que representa la entidad Prestamos en el sistema de gestión de biblioteca escolar
     {
         [Key]
         public int PrestamoId { get; set; } // Identificador único del préstamo
