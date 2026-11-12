@@ -16,7 +16,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Libros", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

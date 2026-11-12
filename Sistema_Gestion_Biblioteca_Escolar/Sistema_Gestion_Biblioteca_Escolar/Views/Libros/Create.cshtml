@@ -1,0 +1,43 @@
+﻿@model Sistema_Gestion_Biblioteca_Escolar.ViewModels.LibroViewModel
+@{ ViewBag.Title = "Registrar libro"; }
+
+<h2>Registrar libro</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Titulo)
+        @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Titulo, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Autor)
+        @Html.TextBoxFor(m => m.Autor, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Autor, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.ISBN)
+        @Html.TextBoxFor(m => m.ISBN, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ISBN, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Categoria)
+        @Html.TextBoxFor(m => m.Categoria, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Categoria, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.CantidadDisponible)
+        @Html.TextBoxFor(m => m.CantidadDisponible, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.CantidadDisponible, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

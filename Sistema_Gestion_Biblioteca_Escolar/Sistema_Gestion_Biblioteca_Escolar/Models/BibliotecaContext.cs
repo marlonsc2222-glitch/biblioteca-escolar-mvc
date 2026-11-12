@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Models
 {
-    public class BibliotecaContext : DbContext
+    public class BibliotecaContext : DbContext // se hereda de DbContext para manejar la conexión a la base de datos y las entidades
     {
         // "BibliotecaContext" debe coincidir con el name de la cadena en Web.config
         public BibliotecaContext() : base("name=BibliotecaContext")

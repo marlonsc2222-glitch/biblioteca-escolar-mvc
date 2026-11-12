@@ -18,6 +18,6 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
         // Nunca se debe almacenar contraseñas en texto plano. En un sistema real, se debería almacenar un hash de la contraseña.
         [Required(ErrorMessage = "La contraseña es obligatoria")]
         [StringLength(100, ErrorMessage = "La contraseña no puede exceder los 100 caracteres")]
-        public string ContraseñaHash { get; set; } // Hash de la contraseña para la cuenta personal
+        public string ContrasenaHash { get; set; } // Hash de la contraseña para la cuenta personal
     }
 }

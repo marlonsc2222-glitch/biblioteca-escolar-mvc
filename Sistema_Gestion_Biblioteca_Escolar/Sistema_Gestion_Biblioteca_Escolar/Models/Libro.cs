@@ -31,7 +31,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
 
         [Range(0, int.MaxValue, ErrorMessage = "La cantidad de copias disponibles no puede ser negativa")]
         [Display(Name = "Copias Disponibles")]
-        public int CopiasDisponibles { get; set; } // Cantidad de copias disponibles del libro
+        public int CantidadDisponible { get; set; } // Cantidad de copias disponibles del libro
 
         public bool Activo { get; set; } // Indica si el libro está activo
 
