@@ -131,9 +131,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BibliotecaContext.cs" />
     <Compile Include="Models\CuentaPersonal.cs" />
     <Compile Include="Models\Libro.cs" />
-    <Compile Include="Models\Prestamos.cs" />
+    <Compile Include="Models\Prestamo.cs" />
+    <Compile Include="Models\UsuarioBiblioteca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
