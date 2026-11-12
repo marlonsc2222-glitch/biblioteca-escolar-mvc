@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Sistema_Gestion_Biblioteca_Escolar.ViewModels.LibroViewModel>
+@{ ViewBag.Title = "Libros"; }
+
+<h2>Catálogo de libros</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">
+    @TempData["Mensaje"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<p>@Html.ActionLink("Registrar libro", "Create", null, new { @class = "btn btn-primary" })</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>ISBN</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var l in Model)
+        {
+            <tr>
+                <td>@l.Titulo</td>
+                <td>@l.Autor</td>
+                <td>@l.ISBN</td>
+                <td>@l.Categoria</td>
+                <td>@l.CantidadDisponible</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = l.LibroId }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = l.LibroId }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
