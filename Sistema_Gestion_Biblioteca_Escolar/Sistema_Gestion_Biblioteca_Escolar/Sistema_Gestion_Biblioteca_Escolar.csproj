@@ -131,6 +131,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202611120636145_Inicial.cs" />
+    <Compile Include="Migrations\202611120636145_Inicial.Designer.cs">
+      <DependentUpon>202611120636145_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BibliotecaContext.cs" />
     <Compile Include="Models\CuentaPersonal.cs" />
     <Compile Include="Models\Libro.cs" />
@@ -219,6 +224,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202611120636145_Inicial.resx">
+      <DependentUpon>202611120636145_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
