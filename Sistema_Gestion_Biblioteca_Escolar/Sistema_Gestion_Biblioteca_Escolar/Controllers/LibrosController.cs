@@ -43,7 +43,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
             return View(modelo);
         }
 
-        // GET: Libros/Edit/5
+        // GET: Libros/Edit/
         public ActionResult Edit(int? id) // Acción para mostrar el formulario de edición de un libro existente, obteniendo el libro por su ID y convirtiéndolo a ViewModel para la vista
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -54,7 +54,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
             return View(ConvertirAViewModel(libro));
         }
 
-        // POST: Libros/Edit/5
+        // POST: Libros/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(LibroViewModel modelo) // Acción para procesar el formulario de edición de un libro existente, validando el modelo y llamando al servicio para actualizar el libro
@@ -72,7 +72,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
             return View(modelo);
         }
 
-        // GET: Libros/Delete/5
+        // GET: Libros/Delete/
         public ActionResult Delete(int? id) // Acción para mostrar la confirmación de eliminación de un libro existente, obteniendo el libro por su ID y convirtiéndolo a ViewModel para la vista
         {
             if (id == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -83,7 +83,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
             return View(ConvertirAViewModel(libro));
         }
 
-        // POST: Libros/Delete/5
+        // POST: Libros/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id) // Acción para procesar la eliminación de un libro existente, llamando al servicio para desactivar el libro y manejando errores

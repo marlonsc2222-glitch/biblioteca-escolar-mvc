@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;          // Atributos de validación: [Key], [Required], [StringLength]...
 using System.ComponentModel.DataAnnotations.Schema;   // Atributos de mapeo a la BD: [Index]
-using System.Linq;
-using System.Web;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Models
 {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+
 
 // Código guíado y consultado mediante IA (Claude Anthropic) ------------------------------------------------------
 namespace Sistema_Gestion_Biblioteca_Escolar.Models
