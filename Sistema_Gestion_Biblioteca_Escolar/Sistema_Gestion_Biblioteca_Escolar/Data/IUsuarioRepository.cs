@@ -5,7 +5,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Data
 {
     public interface IUsuarioRepository // Interfaz para el repositorio de usuarios
     {
-        IEnumerable<UsuarioBiblioteca> ObtenerActivos(); // método para obtener 
+        IEnumerable<UsuarioBiblioteca> ObtenerActivos(); // método para obtener usuarios activos 
         UsuarioBiblioteca ObtenerPorId(int id);
         bool ExisteCedula(string cedula, int? excluirId = null);
         void Agregar(UsuarioBiblioteca usuario);

@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\LibrosController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Data\ILibroRepository.cs" />
     <Compile Include="Data\IUsuarioRepository.cs" />
     <Compile Include="Data\LibroRepository.cs" />
@@ -215,6 +216,10 @@
     <Content Include="Views\Libros\Create.cshtml" />
     <Content Include="Views\Libros\Edit.cshtml" />
     <Content Include="Views\Libros\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

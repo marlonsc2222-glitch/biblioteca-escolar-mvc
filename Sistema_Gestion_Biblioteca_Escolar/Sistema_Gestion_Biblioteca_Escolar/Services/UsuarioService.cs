@@ -23,6 +23,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
             try
             {
                 usuario.Cedula = usuario.Cedula?.Trim(); // "?" valida que cédula no sea null, para ejecutar .Trim() y seguir el flujo.
+                usuario.Correo = usuario.Correo?.Trim(); // Valida el correo de la misma forma al crear
 
                 if (!TiposValidos.Contains(usuario.TipoUsuario)) // Valida el tipo de usuario 
                 {
@@ -32,6 +33,11 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
                 if (repo.ExisteCedula(usuario.Cedula)) // Valida si existe la cédula digitada
                 {
                     error = "Ya existe un usuario con esa cédula.";
+                    return false;
+                }
+                if (repo.ExisteCorreo(usuario.Correo))
+                {
+                    error = "Ya existe un usuario con ese correo.";
                     return false;
                 }
 
@@ -59,6 +65,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
             try
             {
                 usuario.Cedula = usuario.Cedula?.Trim(); // "?" valida que cédula no sea null, para ejecutar .Trim() y seguir el flujo.
+                usuario.Correo = usuario.Correo?.Trim(); // Valida el correo de la misma forma al editar
 
                 if (!TiposValidos.Contains(usuario.TipoUsuario)) // Valida el tipo de usuario 
                 {
@@ -68,6 +75,11 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
                 if (repo.ExisteCedula(usuario.Cedula, usuario.UsuarioId)) // Valida si existe la cédula digitada
                 {
                     error = "Ya existe otro usuario con esa cédula.";
+                    return false;
+                }
+                if (repo.ExisteCorreo(usuario.Correo, usuario.UsuarioId))
+                {
+                    error = "Ya existe otro usuario con ese correo.";
                     return false;
                 }
 
