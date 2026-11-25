@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Sistema_Gestion_Biblioteca_Escolar.ViewModels.PrestamoItemViewModel>
+@{ ViewBag.Title = "Devoluciones"; }
+
+<h2>Préstamos pendientes de devolución</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Libro</th>
+            <th>Fecha de préstamo</th>
+            <th>Devolución esperada</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Usuario</td>
+                <td>@p.Libro</td>
+                <td>@p.FechaPrestamo.ToString("dd/MM/yyyy")</td>
+                <td>@p.FechaDevolucionEsperada.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @using (Html.BeginForm("MarcarDevuelto", "Devoluciones", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", p.PrestamoId)
+                        <button type="submit" class="btn btn-sm btn-primary">Marcar como devuelto</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay préstamos pendientes.</p>
+}
