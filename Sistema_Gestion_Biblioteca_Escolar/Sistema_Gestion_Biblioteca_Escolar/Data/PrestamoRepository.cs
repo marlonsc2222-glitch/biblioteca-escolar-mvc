@@ -83,5 +83,20 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Data
             db.SaveChanges();
             return true;
         }
+        public IEnumerable<LibroRanking> ObtenerMasPrestados(int cantidad) // Ranking de libros según cuántas veces se han prestado
+        {
+            return db.Libros
+                .Select(l => new LibroRanking
+                {
+                    Titulo = l.Titulo,
+                    Autor = l.Autor,
+                    VecesPrestado = l.Prestamos.Count() // Cuenta los préstamos de cada libro
+                })
+                .Where(r => r.VecesPrestado > 0)        // Solo libros que se han prestado al menos una vez
+                .OrderByDescending(r => r.VecesPrestado) // El más prestado primero
+                .ThenBy(r => r.Titulo)                   // Si hay empate, orden alfabético
+                .Take(cantidad)                          // Solo los primeros N
+                .ToList();
+        }
     }
 }

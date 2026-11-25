@@ -161,6 +161,7 @@
     <Compile Include="Models\BibliotecaContext.cs" />
     <Compile Include="Models\CuentaPersonal.cs" />
     <Compile Include="Models\Libro.cs" />
+    <Compile Include="Models\LibroRanking.cs" />
     <Compile Include="Models\Prestamo.cs" />
     <Compile Include="Models\UsuarioBiblioteca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,6 +233,7 @@
     <Content Include="Views\Prestamos\Create.cshtml" />
     <Content Include="Views\Devoluciones\Index.cshtml" />
     <Content Include="Views\Consultas\Historial.cshtml" />
+    <Content Include="Views\Consultas\MasPrestados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
