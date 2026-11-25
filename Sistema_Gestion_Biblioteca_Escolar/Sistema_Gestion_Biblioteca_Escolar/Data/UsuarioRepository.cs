@@ -31,11 +31,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Data
 
             string correoNormalizado = correo.Trim().ToLower();
 
-            return db.Usuarios.Any(u =>
-                u.Activo &&
-                u.Correo != null &&
-                u.Correo.Trim().ToLower() == correoNormalizado &&
-                (!excluirId.HasValue || u.UsuarioId != excluirId.Value));
+            return db.Usuarios.Any(u => u.Activo &&  u.Correo != null && u.Correo.Trim().ToLower() == correoNormalizado && (!excluirId.HasValue || u.UsuarioId != excluirId.Value));
         }
 
         public void Agregar(UsuarioBiblioteca usuario) // Método para agregar un Usuario nuevo a la base de datos.
