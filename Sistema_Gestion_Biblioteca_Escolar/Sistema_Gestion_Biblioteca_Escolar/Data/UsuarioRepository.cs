@@ -74,11 +74,6 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Data
             db.Entry(usuario).State = EntityState.Modified;
             db.SaveChanges();
         }
-        public bool ExisteCorreo(string correo, int? excluirId = null) // Método para validar la existencia de un correo digitado
-        {
-            var correoNormalizado = correo?.Trim().ToLower();
-            return db.Usuarios.Any(u => u.Correo.ToLower() == correoNormalizado && u.UsuarioId != excluirId);
-        }
 
         public bool TienePrestamosPendientes(int id) // Un préstamo pendiente es el que aún no tiene fecha de devolución real
         {
