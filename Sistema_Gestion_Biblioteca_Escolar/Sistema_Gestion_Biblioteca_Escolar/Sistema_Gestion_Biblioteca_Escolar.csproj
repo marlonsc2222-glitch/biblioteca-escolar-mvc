@@ -161,6 +161,7 @@
     <Compile Include="Services\LibroService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="ViewModels\LibroViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
