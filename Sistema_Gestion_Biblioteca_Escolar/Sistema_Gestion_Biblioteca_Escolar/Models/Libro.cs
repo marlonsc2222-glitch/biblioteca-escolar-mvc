@@ -37,7 +37,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
 
         public virtual ICollection<Prestamo> Prestamos { get; set; } // Relación con la entidad Prestamo
 
-        public Libro()
+        public Libro() // Constructor de la Entidad
         {
             Prestamos = new HashSet<Prestamo>(); // Inicializa la colección de préstamos
             Activo = true; // Por defecto, el libro está activo

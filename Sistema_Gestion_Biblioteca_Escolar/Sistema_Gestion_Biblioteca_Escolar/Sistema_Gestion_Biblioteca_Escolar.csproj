@@ -129,7 +129,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\LibrosController.cs" />
     <Compile Include="Data\ILibroRepository.cs" />
+    <Compile Include="Data\IUsuarioRepository.cs" />
     <Compile Include="Data\LibroRepository.cs" />
+    <Compile Include="Data\UsuarioRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,6 +147,10 @@
     <Compile Include="Migrations\202611122149457_AjustarNombresColumnas.Designer.cs">
       <DependentUpon>202611122149457_AjustarNombresColumnas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202611241748429_AgregarActivoUsuarioBiblioteca.cs" />
+    <Compile Include="Migrations\202611241748429_AgregarActivoUsuarioBiblioteca.Designer.cs">
+      <DependentUpon>202611241748429_AgregarActivoUsuarioBiblioteca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BibliotecaContext.cs" />
     <Compile Include="Models\CuentaPersonal.cs" />
@@ -153,6 +159,7 @@
     <Compile Include="Models\UsuarioBiblioteca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LibroService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="ViewModels\LibroViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202611122149457_AjustarNombresColumnas.resx">
       <DependentUpon>202611122149457_AjustarNombresColumnas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202611241748429_AgregarActivoUsuarioBiblioteca.resx">
+      <DependentUpon>202611241748429_AgregarActivoUsuarioBiblioteca.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
