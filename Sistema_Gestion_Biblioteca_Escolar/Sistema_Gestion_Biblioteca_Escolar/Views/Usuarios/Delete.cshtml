@@ -1,0 +1,23 @@
+﻿@model Sistema_Gestion_Biblioteca_Escolar.ViewModels.UsuarioViewModel
+@{ ViewBag.Title = "Eliminar usuario"; }
+
+<h2>Eliminar usuario</h2>
+<h5 class="text-danger">¿Seguro que desea eliminar este usuario?</h5>
+
+<dl class="row">
+    <dt class="col-sm-2">Nombre</dt>
+    <dd class="col-sm-10">@Model.Nombre</dd>
+    <dt class="col-sm-2">Cédula</dt>
+    <dd class="col-sm-10">@Model.Cedula</dd>
+    <dt class="col-sm-2">Correo</dt>
+    <dd class="col-sm-10">@Model.Correo</dd>
+    <dt class="col-sm-2">Tipo de usuario</dt>
+    <dd class="col-sm-10">@Model.TipoUsuario</dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+}
