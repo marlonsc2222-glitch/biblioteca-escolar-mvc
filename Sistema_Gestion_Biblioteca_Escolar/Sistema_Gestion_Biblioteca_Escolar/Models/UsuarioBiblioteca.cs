@@ -27,7 +27,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
 
         // Correo: obligatorio, máximo 150 caracteres y con formato de email válido
         [Required(ErrorMessage = "El correo es obligatorio")]
-        [StringLength(150, ErrorMessage = "El correo no tiene un formato valido")]
+        [StringLength(150, ErrorMessage = "El correo no puede superar los 150 caracteres")]
         [EmailAddress(ErrorMessage = "El correo no tiene un formato valido")]
         public string Correo { get; set; }
 
@@ -41,11 +41,13 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
         // "virtual" permite a Entity Framework cargar los datos relacionados cuando se necesitan (lazy loading)
         public virtual ICollection<Prestamo> Prestamos { get; set; }
 
-        // Constructor: inicializa la colección vacía para evitar errores de
-        // referencia nula al agregar préstamos
-        public UsuarioBiblioteca()
+        public bool Activo { get; set; }
+
+        // Constructor: inicializa la colección vacía para evitar errores
+        public UsuarioBiblioteca() // Constructor de la Entidad 
         {
             Prestamos = new HashSet<Prestamo>();
+            Activo = true;
         }
     }
 }
