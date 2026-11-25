@@ -1,0 +1,47 @@
+﻿
+@model Sistema_Gestion_Biblioteca_Escolar.ViewModels.HistorialViewModel
+@{ ViewBag.Title = "Historial de préstamos"; }
+
+<h2>Historial de préstamos por usuario</h2>
+
+@using (Html.BeginForm("Historial", "Consultas", FormMethod.Get))
+{
+    <div class="mb-3">
+        @Html.DropDownListFor(m => m.UsuarioId, Model.Usuarios, "-- Seleccione un usuario --",
+            new { @class = "form-select", onchange = "this.form.submit()" })
+    </div>
+}
+
+@if (Model.UsuarioId.HasValue)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Libro</th>
+                <th>Fecha de préstamo</th>
+                <th>Devolución esperada</th>
+                <th>Devolución real</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Prestamos)
+            {
+                <tr>
+                    <td>@p.Libro</td>
+                    <td>@p.FechaPrestamo.ToString("dd/MM/yyyy")</td>
+                    <td>@p.FechaDevolucionEsperada.ToString("dd/MM/yyyy")</td>
+                    <td>@(p.FechaDevolucionReal.HasValue ? p.FechaDevolucionReal.Value.ToString("dd/MM/yyyy") : "-")</td>
+                    <td>
+                        <span class="badge @(p.Estado == "Activo" ? "bg-success" : "bg-secondary")">@p.Estado</span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    if (!Model.Prestamos.Any())
+    {
+        <p class="text-muted">Este usuario no tiene préstamos.</p>
+    }
+}

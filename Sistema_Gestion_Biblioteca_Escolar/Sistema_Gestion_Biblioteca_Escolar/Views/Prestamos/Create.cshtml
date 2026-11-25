@@ -1,0 +1,38 @@
+﻿@model Sistema_Gestion_Biblioteca_Escolar.ViewModels.PrestamoViewModel
+@{ ViewBag.Title = "Registrar préstamo"; }
+
+<h2>Registrar préstamo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.UsuarioId)
+        @Html.DropDownListFor(m => m.UsuarioId, Model.Usuarios, "-- Seleccione --", new { @class = "form-select" })
+        @Html.ValidationMessageFor(m => m.UsuarioId, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.LibroId)
+        @Html.DropDownListFor(m => m.LibroId, Model.Libros, "-- Seleccione --", new { @class = "form-select" })
+        @Html.ValidationMessageFor(m => m.LibroId, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.FechaPrestamo)
+        @Html.TextBoxFor(m => m.FechaPrestamo, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.FechaPrestamo, "", new { @class = "text-danger" })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(m => m.FechaDevolucionEsperada)
+        @Html.TextBoxFor(m => m.FechaDevolucionEsperada, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(m => m.FechaDevolucionEsperada, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar préstamo</button>
+    @Html.ActionLink("Cancelar", "Index", "Libros", null, new { @class = "btn btn-secondary" })
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
