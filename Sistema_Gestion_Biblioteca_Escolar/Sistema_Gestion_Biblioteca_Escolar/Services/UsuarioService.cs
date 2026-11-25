@@ -15,54 +15,26 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
         public IEnumerable<UsuarioBiblioteca> Listar() => repo.ObtenerActivos(); // se delega a la interfáz (IUsuarioRepository) para obtener los usuarios activos
 
         public UsuarioBiblioteca Obtener(int id) => repo.ObtenerPorId(id);
-
-        public bool Crear(UsuarioBiblioteca usuario, out string error) // método para manejar la lógica de negocio de la creación de usuarios
+        
+        public bool Crear(UsuarioBiblioteca usuario, out string error)
         {
-            error = null;
+            error = null; 
             try
             {
-                usuario.Cedula = usuario.Cedula?.Trim(); // "?" valida que cédula no sea null, para ejecutar .Trim() y seguir el flujo.
+                usuario.Cedula = usuario.Cedula?.Trim();
 
-                if (!TiposValidos.Contains(usuario.TipoUsuario)) // Valida el tipo de usuario 
+                if (!TiposValidos.Contains(usuario.TipoUsuario))
                 {
                     error = "El tipo de usuario debe ser Estudiante o Profesor.";
                     return false;
                 }
-                if (repo.ExisteCedula(usuario.Cedula)) // Valida si existe la cédula digitada
-                {
-                    error = "Ya existe un usuario con esa cédula.";
-                    return false;
-                }
-
-                repo.Agregar(usuario); // Una vez validado se delega al método Agregar() del repositorio para agregar el usuario a la base de datos
-                return true;
-            }
-            catch (Exception)
-            {
-                error = "No se pudo guardar el usuario. Intente de nuevo.";
-                return false;
-            }
-        }
-
-        public bool Editar(UsuarioBiblioteca usuario, out string error) // Método para manejar la lógica de negocio de la edición de usuarios
-        {
-            error = null;
-            try
-            {
-                usuario.Cedula = usuario.Cedula?.Trim(); // "?" valida que cédula no sea null, para ejecutar .Trim() y seguir el flujo.
-
-                if (!TiposValidos.Contains(usuario.TipoUsuario)) // Valida el tipo de usuario 
-                {
-                    error = "El tipo de usuario debe ser Estudiante o Profesor.";
-                    return false;
-                }
-                if (repo.ExisteCedula(usuario.Cedula, usuario.UsuarioId)) // Valida si existe la cédula digitada
+                if (repo.ExisteCedula(usuario.Cedula, usuario.UsuarioId)) // Se excluye al propio usuario
                 {
                     error = "Ya existe otro usuario con esa cédula.";
                     return false;
                 }
 
-                repo.Actualizar(usuario); // Una vez validado se delega al método Actualizar() del repositorio para actualizar el usuario en la base de datos
+                repo.Actualizar(usuario);
                 return true;
             }
             catch (Exception)
@@ -72,23 +44,23 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
             }
         }
 
-        public bool Eliminar(int id, out string error) // Método para manejar la lógicad de negocio de la eliminación (Eliminado Lógico) de usuarios.
+        public bool Eliminar(int id, out string error)
         {
             error = null;
             try
             {
-                if (repo.ObtenerPorId(id) == null) // se valida que el usuario exista
+                if (repo.ObtenerPorId(id) == null)
                 {
                     error = "El usuario no existe.";
                     return false;
                 }
-                if (repo.TienePrestamosPendientes(id)) // No se puede dar de baja a quien aún tiene libros sin devolver.
+                if (repo.TienePrestamosPendientes(id))
                 {
                     error = "No se puede eliminar: el usuario tiene préstamos pendientes.";
                     return false;
                 }
 
-                repo.Desactivar(id); // Si las validaciones son correctas, se desactiva el usuario
+                repo.Desactivar(id);
                 return true;
             }
             catch (Exception)
