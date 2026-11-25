@@ -37,8 +37,8 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Models
         [Display(Name = "Tipo de Usuario")]
         public string TipoUsuario { get; set; }
 
-        // Propiedad de navegación: un usuario puede tener MUCHOS préstamos (relación 1 a N).
-        // "virtual" permite a Entity Framework cargar los datos relacionados cuando se necesitan (lazy loading)
+        // Propiedad de navegación: un usuario puede tener MUCHOS préstamos.
+        // "virtual" permite a Entity Framework cargar los datos relacionados cuando se necesitan.
         public virtual ICollection<Prestamo> Prestamos { get; set; }
 
         public bool Activo { get; set; }
