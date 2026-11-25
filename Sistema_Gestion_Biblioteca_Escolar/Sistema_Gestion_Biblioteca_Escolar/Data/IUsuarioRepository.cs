@@ -12,5 +12,6 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Data
         void Actualizar(UsuarioBiblioteca usuario);
         void Desactivar(int id);
         bool TienePrestamosPendientes(int id);
+        bool ExisteCorreo(string correo, int? excluirId = null);
     }
 }
