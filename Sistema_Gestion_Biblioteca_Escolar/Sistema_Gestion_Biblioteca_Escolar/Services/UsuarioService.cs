@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.ModelBinding;
 using Sistema_Gestion_Biblioteca_Escolar.Data;
 using Sistema_Gestion_Biblioteca_Escolar.Models;
 
@@ -34,8 +35,16 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
                     return false;
                 }
 
+                //Valida si el correo digitado ya existe a la hora de registra un usuario
+                usuario.Correo = usuario.Correo?.Trim();
+                if (repo.ExisteCorreo(usuario.Correo))
+                {
+                    error = "Ya existe un usuario registrado con ese correo.";
+                    return false;
+                }
+
                 repo.Agregar(usuario); // Una vez validado se delega al método Agregar() del repositorio para agregar el usuario a la base de datos
-                return true;
+                return true;    
             }
             catch (Exception)
             {
@@ -59,6 +68,14 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
                 if (repo.ExisteCedula(usuario.Cedula, usuario.UsuarioId)) // Valida si existe la cédula digitada
                 {
                     error = "Ya existe otro usuario con esa cédula.";
+                    return false;
+                }
+
+                // Valida si el correo ya existe al editar un Usuario
+                usuario.Correo = usuario.Correo?.Trim();
+                if (repo.ExisteCorreo(usuario.Correo, usuario.UsuarioId))
+                {
+                    error = "Ya existe otro usuario con ese correo.";
                     return false;
                 }
 
