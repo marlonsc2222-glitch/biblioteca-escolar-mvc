@@ -3,7 +3,7 @@ using Sistema_Gestion_Biblioteca_Escolar.Models;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.ViewModels
 {
-    public class PrestamoItemViewModel // Fila de tabla: la usan Devoluciones e Historial
+    public class PrestamoItemViewModel // ViewModel para mostrar la información de un préstamo específico, incluyendo el estado del préstamo (Activo o Devuelto)
     {
         public int PrestamoId { get; set; }
         public string Usuario { get; set; }
@@ -13,7 +13,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.ViewModels
         public DateTime? FechaDevolucionReal { get; set; }
         public string Estado => FechaDevolucionReal == null ? "Activo" : "Devuelto";
 
-        public static PrestamoItemViewModel Desde(Prestamo p)
+        public static PrestamoItemViewModel Desde(Prestamo p)// Método estático que convierte un objeto Prestamo en un PrestamoItemViewModel, mapeando las propiedades relevantes
         {
             return new PrestamoItemViewModel
             {

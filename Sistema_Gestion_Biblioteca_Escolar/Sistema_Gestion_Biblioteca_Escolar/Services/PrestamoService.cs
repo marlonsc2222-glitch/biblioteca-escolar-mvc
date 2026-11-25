@@ -11,12 +11,13 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
         private readonly IUsuarioRepository usuarios = new UsuarioRepository();
         private readonly ILibroRepository libros = new LibroRepository();
 
-        public IEnumerable<UsuarioBiblioteca> UsuariosActivos() => usuarios.ObtenerActivos();
-        public IEnumerable<Libro> LibrosActivos() => libros.ObtenerActivos();
-        public IEnumerable<Prestamo> Pendientes() => repo.ObtenerPendientes();
-        public IEnumerable<Prestamo> HistorialDeUsuario(int usuarioId) => repo.ObtenerPorUsuario(usuarioId);
+        public IEnumerable<UsuarioBiblioteca> UsuariosActivos() => usuarios.ObtenerActivos(); // Devuelve todos los usuarios activos
+        public IEnumerable<Libro> LibrosActivos() => libros.ObtenerActivos();// Devuelve todos los libros activos
+        public IEnumerable<Prestamo> Pendientes() => repo.ObtenerPendientes();// Devuelve todos los préstamos pendientes (sin fecha de devolución real)
+        public IEnumerable<LibroRanking> LibrosMasPrestados(int cantidad = 10) => repo.ObtenerMasPrestados(cantidad);
+        public IEnumerable<Prestamo> HistorialDeUsuario(int usuarioId) => repo.ObtenerPorUsuario(usuarioId);// Devuelve el historial completo de préstamos de un usuario específico
 
-        public bool Registrar(Prestamo prestamo, out string error)
+        public bool Registrar(Prestamo prestamo, out string error)// Registra un nuevo préstamo, verificando la existencia y disponibilidad del libro y del usuario, y devuelve un mensaje de error si algo falla
         {
             error = null;
             try
@@ -35,7 +36,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Services
             }
         }
 
-        public bool MarcarDevuelto(int prestamoId, out string error)
+        public bool MarcarDevuelto(int prestamoId, out string error)// Marca un préstamo como devuelto, actualizando la fecha de devolución real y aumentando la cantidad disponible del libro, devolviendo un mensaje de error si algo falla
         {
             error = null;
             try

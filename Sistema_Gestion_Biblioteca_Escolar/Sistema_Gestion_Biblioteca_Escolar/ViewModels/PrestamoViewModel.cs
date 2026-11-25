@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.ViewModels
 {
-    public class PrestamoViewModel // Formulario de registrar préstamo
+    public class PrestamoViewModel // ViewModel para registrar un nuevo préstamo, incluyendo la información del usuario, libro y fechas de préstamo y devolución esperada
     {
         [Required(ErrorMessage = "Seleccione un usuario")]
         [Display(Name = "Usuario")]

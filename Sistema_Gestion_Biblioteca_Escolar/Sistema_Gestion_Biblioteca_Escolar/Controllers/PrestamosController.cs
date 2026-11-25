@@ -7,7 +7,7 @@ using Sistema_Gestion_Biblioteca_Escolar.ViewModels;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
 {
-    public class PrestamosController : Controller
+    public class PrestamosController : Controller // Controlador para manejar las operaciones relacionadas con los préstamos de libros, incluyendo la creación de nuevos préstamos y la visualización del historial de préstamos
     {
         private readonly PrestamoService servicio = new PrestamoService();
 
@@ -28,7 +28,7 @@ namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
         // POST: Prestamos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PrestamoViewModel modelo)
+        public ActionResult Create(PrestamoViewModel modelo)// Maneja la solicitud POST para crear un nuevo préstamo, validando el modelo y registrando el préstamo a través del servicio, devolviendo la vista con errores si algo falla
         {
             if (ModelState.IsValid)
             {
