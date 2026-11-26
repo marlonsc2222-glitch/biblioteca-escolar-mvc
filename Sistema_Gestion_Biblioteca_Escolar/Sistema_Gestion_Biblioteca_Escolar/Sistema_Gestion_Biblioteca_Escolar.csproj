@@ -128,10 +128,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\DevolucionesController.cs" />
     <Compile Include="Controllers\LibrosController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Data\CuentaPersonalRepository.cs" />
     <Compile Include="Data\ILibroRepository.cs" />
     <Compile Include="Data\IPrestamoRepository.cs" />
     <Compile Include="Data\IUsuarioRepository.cs" />
@@ -168,8 +170,10 @@
     <Compile Include="Services\LibroService.cs" />
     <Compile Include="Services\PrestamoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Services\VerificadorContrasena.cs" />
     <Compile Include="ViewModels\HistorialViewModel.cs" />
     <Compile Include="ViewModels\LibroViewModel.cs" />
+    <Compile Include="ViewModels\LoginPersonalViewModel.cs" />
     <Compile Include="ViewModels\PrestamoItemViewModel.cs" />
     <Compile Include="ViewModels\PrestamoViewModel.cs" />
     <Compile Include="ViewModels\UsuarioViewModel.cs" />
@@ -234,6 +238,7 @@
     <Content Include="Views\Devoluciones\Index.cshtml" />
     <Content Include="Views\Consultas\Historial.cshtml" />
     <Content Include="Views\Consultas\MasPrestados.cshtml" />
+    <Content Include="Views\Cuenta\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

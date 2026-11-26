@@ -5,6 +5,8 @@ using Sistema_Gestion_Biblioteca_Escolar.ViewModels;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
 {
+    // Solo el personal con sesión iniciada puede gestionar usuarios.
+    [Authorize]
     public class DevolucionesController : Controller
     {
         private readonly PrestamoService servicio = new PrestamoService();

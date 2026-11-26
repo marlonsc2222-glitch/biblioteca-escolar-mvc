@@ -34,6 +34,17 @@
         </div>
     </nav>
     <div class="container body-content">
+        @* Muestra el botón cuando el personal tiene una sesión activa. *@
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Html.BeginForm("CerrarSesion", "Cuenta", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-outline-secondary my-3">
+                    Cerrar sesión
+                </button>
+            }
+        }
         @RenderBody()
         <hr />
         <footer>

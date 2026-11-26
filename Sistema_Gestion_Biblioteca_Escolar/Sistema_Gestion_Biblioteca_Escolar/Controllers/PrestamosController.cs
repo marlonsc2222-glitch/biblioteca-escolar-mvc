@@ -7,6 +7,8 @@ using Sistema_Gestion_Biblioteca_Escolar.ViewModels;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
 {
+    // Solo el personal con sesión iniciada puede gestionar usuarios.
+    [Authorize]
     public class PrestamosController : Controller // Controlador para manejar las operaciones relacionadas con los préstamos de libros, incluyendo la creación de nuevos préstamos y la visualización del historial de préstamos
     {
         private readonly PrestamoService servicio = new PrestamoService();
