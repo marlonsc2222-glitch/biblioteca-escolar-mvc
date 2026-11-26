@@ -8,11 +8,13 @@ using Sistema_Gestion_Biblioteca_Escolar.ViewModels;
 
 namespace Sistema_Gestion_Biblioteca_Escolar.Controllers
 {
+    [Authorize]
     public class LibrosController : Controller
     {
         private readonly LibroService servicio = new LibroService();
 
         // GET: Libros
+        [AllowAnonymous]
         public ActionResult Index() // Acción para listar todos los libros activos, obteniendo los datos del servicio y convirtiéndolos a ViewModel para la vista
         {
             var libros = servicio.Listar().Select(ConvertirAViewModel).ToList();
